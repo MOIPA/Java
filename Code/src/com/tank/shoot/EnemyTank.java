@@ -7,5 +7,6 @@ class EnemyTank extends Tank {
 
     public EnemyTank(int x, int y, Color color) {
         super(x, y ,color);
+        super.setDirect(WarField.INFO.BACKWARD);
     }
 }

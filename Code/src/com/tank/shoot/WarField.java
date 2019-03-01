@@ -42,7 +42,7 @@ class WarField extends JPanel implements KeyListener, Runnable {
 //        this.addKeyListener(this);
         //初始化敌人坦克组
         for (int i = 1; i <= enemyNumber; i++) {
-            enemys.add(new EnemyTank(i * 40, 20, Color.YELLOW));
+            enemys.add(new EnemyTank(i * 40, -1, Color.YELLOW));
         }
     }
 
@@ -56,26 +56,31 @@ class WarField extends JPanel implements KeyListener, Runnable {
                     //坦克死亡
                     enemyTank.isAlive = false;
                 }
+//                System.out.println("enemy forward died");
                 break;
             case LEFT:
+//                System.out.println("enemy left died");
                 if (enemyTank.getX() <= bullet.getX() && enemyTank.getX() >= bullet.getX() + 30 && enemyTank.getY() <= bullet.getY() && enemyTank.getY() + 20 >= bullet.getY()) {
                     bullet.isAlive = false;
                     enemyTank.isAlive = false;
                 }
                 break;
             case RIGHT:
-                if (enemyTank.getX() <= bullet.getX() && enemyTank.getX() >= bullet.getX() + 20 && enemyTank.getY() <= bullet.getY() && enemyTank.getY() + 30 >= bullet.getY()) {
+//                System.out.println("enemy right died");
+                if (enemyTank.getX() <= bullet.getX() && enemyTank.getX() + 30 >= bullet.getX() && enemyTank.getY() <= bullet.getY() && enemyTank.getY() + 20 >= bullet.getY()) {
                     bullet.isAlive = false;
                     enemyTank.isAlive = false;
                 }
                 break;
             case BACKWARD:
-                if (enemyTank.getX() <= bullet.getX() && enemyTank.getX() >= bullet.getX() + 30 && enemyTank.getY() <= bullet.getY() && enemyTank.getY() + 20 >= bullet.getY()) {
+                if (enemyTank.getX() <= bullet.getX() && enemyTank.getX()+20 >= bullet.getX()  && enemyTank.getY() <= bullet.getY() && enemyTank.getY() + 30 >= bullet.getY()) {
                     bullet.isAlive = false;
                     enemyTank.isAlive = false;
                 }
                 break;
         }
+//        System.out.println("dected");
+
     }
 
     public void paint(Graphics g) {
@@ -86,14 +91,18 @@ class WarField extends JPanel implements KeyListener, Runnable {
         //主角
         drawTank(tank.getX(), tank.getY(), g, tank.getDirect(), Color.RED);
         //小兵
+        EnemyTank enemyTank;
         for (int i = 0; i < enemys.size(); i++) {
-            drawTank(enemys.get(i).getX(), enemys.get(i).getY(), g, INFO.BACKWARD, Color.YELLOW);
+            enemyTank = enemys.get(i);
+            if(enemyTank.isAlive==true) drawTank(enemys.get(i).getX(), enemys.get(i).getY(), g, enemyTank.getDirect(), Color.YELLOW);
+            else  {enemys.remove(enemyTank);i--;}
         }
         //子弹
         for (int i = 0; i < tank.bullets.size(); i++) {
-            if (tank.bullets.get(i) != null) {
-                if (tank.bullets.get(i).isAlive == false) tank.bullets.remove(i);  //死亡后在此销毁资源
-                else g.draw3DRect(tank.bullets.get(i).getX(), tank.bullets.get(i).getY(), 1, 1, false);
+            Bullet bullet = tank.bullets.get(i);
+            if (bullet!= null) {
+                if (bullet.isAlive == false){ tank.bullets.remove(bullet);i--;}  //死亡后在此销毁资源
+                else g.draw3DRect(bullet.getX(), bullet.getY(), 1, 1, false);
             }
         }
     }
@@ -202,6 +211,18 @@ class WarField extends JPanel implements KeyListener, Runnable {
                 Thread.sleep(100);
             } catch (InterruptedException e) {
                 e.printStackTrace();
+            }
+            //判断是否击中 每个坦克和每个子弹
+            for (int i = 0; i < tank.bullets.size(); i++) {
+                Bullet bullet = tank.bullets.get(i);
+                if (bullet.isAlive == true) {
+                    //取出每个坦克匹配
+                    for (int j = 0; j < enemys.size(); j++) {
+                        EnemyTank enemyTank = enemys.get(j);
+                        if(enemyTank.isAlive)
+                            hitTank(bullet, enemyTank); //paint的时候根据状态选择是否绘画
+                    }
+                }
             }
             this.repaint();
         }
