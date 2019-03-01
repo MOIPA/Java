@@ -1,4 +1,4 @@
-package com.tank.component;
+package com.tank.shoot;
 
 
 import javax.swing.*;
@@ -8,7 +8,7 @@ import java.awt.event.KeyListener;
 import java.util.Vector;
 
 //面板 战场
-class MyPanel extends JPanel implements KeyListener {
+class WarField extends JPanel implements KeyListener,Runnable {
     //定义主角坦克
     HeroTank tank = null;
     //定义敌人坦克
@@ -16,7 +16,7 @@ class MyPanel extends JPanel implements KeyListener {
     //敌人数量
     int enemyNumber = 4;
 
-    public MyPanel() {
+    public WarField() {
         //初始化主角
         tank = new HeroTank(100,100,Color.RED);
 //        this.addKeyListener(this);
@@ -37,9 +37,13 @@ class MyPanel extends JPanel implements KeyListener {
         for (int i = 0; i < enemys.size(); i++) {
             drawTank(enemys.get(i).getX(),enemys.get(i).getY(),g,2,Color.YELLOW);
         }
+        //子弹
+        if (tank.bullet != null&&tank.bullet.isAlive==true) {
+            g.draw3DRect(tank.bullet.getX(), tank.bullet.getY(), 1, 1, false);
+        }
     }
 
-    //draw 主角坦克
+    //draw 坦克
     public void drawTank(int x, int y, Graphics g, int direct, Color color) {
 //        switch (type) {
 //            case 0:
@@ -93,6 +97,7 @@ class MyPanel extends JPanel implements KeyListener {
 
     }
 
+
     //处理按键wsad
     @Override
     public void keyTyped(KeyEvent e) {
@@ -116,6 +121,10 @@ class MyPanel extends JPanel implements KeyListener {
             this.tank.setDirect(3);
             this.tank.moveLeft();
         }
+        if (e.getKeyCode() == KeyEvent.VK_J) {
+            //开火
+            this.tank.fire();
+        }
 //        this.tank.moveLeft();
         //坦克移动后要刷新面板
         this.repaint();
@@ -125,89 +134,18 @@ class MyPanel extends JPanel implements KeyListener {
     public void keyReleased(KeyEvent e) {
 //        System.out.println("key released");
     }
-}
 
-class Tank{
-    int x; //坦克横坐标
-    int y;
-    int direct=0; //方向 0 上 1 右 2下  3 左
-    Color color;
-
-    public Color getColor() {
-        return color;
-    }
-
-    public void setColor(Color color) {
-        this.color = color;
-    }
-
-    public int getDirect() {
-        return direct;
-    }
-
-    public void setDirect(int direct) {
-        this.direct = direct;
-    }
-
-    public int getX() {
-        return x;
-    }
-
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
-    public void setY(int y) {
-        this.y = y;
-    }
-
-    public Tank(int x, int y,Color color) {
-        this.x = x;
-        this.y = y;
-        this.color = color;
+    @Override
+    public void run() {
+        //每隔100ms重绘界面
+        while (true) {
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            this.repaint();
+        }
     }
 }
 
-//敌人坦克
-class EnemyTank extends Tank{
-
-    public EnemyTank(int x, int y, Color color) {
-        super(x, y ,color);
-    }
-}
-
-//玩家坦克
-class HeroTank extends Tank{
-    //坦克速度
-    int speed = 4;
-
-    public int getSpeed() {
-        return speed;
-    }
-
-    public void setSpeed(int speed) {
-        this.speed = speed;
-    }
-
-    public HeroTank(int x, int y , Color color) {
-        super(x, y,color);
-    }
-
-    //先上运动
-    public void moveUp() {
-        this.y-=this.speed;
-    }
-    public void moveDown() {
-        this.y+=this.speed;
-    }
-    public void moveLeft() {
-        this.x-=this.speed;
-    }
-    public void moveRight() {
-        this.x+=this.speed;
-    }
-}

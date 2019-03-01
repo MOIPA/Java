@@ -32,11 +32,11 @@
 //        //背景色
 //        g.setColor(Color.BLACK);
 //        g.fillRect(0,0,400,300);
-//        drawATank(tank.getX(),tank.getY(),g,0,1);
+//        drawTank(tank.getX(),tank.getY(),g,0,1);
 //    }
 //
 //    //draw 一个坦克
-//    public void drawATank(int x, int y, Graphics g,int direct,int type) {
+//    public void drawTank(int x, int y, Graphics g,int direct,int type) {
 //        switch (type) {
 //            case 0:
 //                g.setColor(Color.BLUE);
