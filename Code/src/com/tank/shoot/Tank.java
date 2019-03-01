@@ -3,9 +3,11 @@ package com.tank.shoot;
 import java.awt.*;
 
 class Tank{
+    public boolean isAlive = true;
     int x; //坦克横坐标
     int y;
-    int direct=0; //方向 0 上 1 右 2下  3 左
+    //    int direct=0; //方向 0 上 1 右 2下  3 左
+    WarField.INFO direct = WarField.INFO.FORWARD;
     Color color;
 
     public Color getColor() {
@@ -16,11 +18,11 @@ class Tank{
         this.color = color;
     }
 
-    public int getDirect() {
+    public WarField.INFO getDirect() {
         return direct;
     }
 
-    public void setDirect(int direct) {
+    public void setDirect(WarField.INFO direct) {
         this.direct = direct;
     }
 

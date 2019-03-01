@@ -1,11 +1,15 @@
 package com.tank.shoot;
 
 import java.awt.*;
+import java.util.Vector;
+import static com.tank.shoot.WarField.INFO.*;
+
 
 //玩家坦克
 class HeroTank extends Tank {
     //子弹
     Bullet bullet =null;
+    Vector<Bullet> bullets = new Vector<Bullet>();
     //坦克速度
     int speed = 4;
 
@@ -24,19 +28,20 @@ class HeroTank extends Tank {
     //开火
     public void fire() {
         switch (this.getDirect()) {
-            case 0:
-                bullet = new Bullet(this.getX() + 10, this.getY(),0,5);
+            case FORWARD:
+                bullet = new Bullet(this.getX() + 10, this.getY(), FORWARD, 5);
                 break;
-            case 1:
-                bullet = new Bullet(this.getX() + 30, this.getY() + 10,1,5);
+            case RIGHT:
+                bullet = new Bullet(this.getX() + 30, this.getY() + 10, RIGHT, 5);
                 break;
-            case 2:
-                bullet = new Bullet(this.getX() + 10, this.getY() + 30,2,5);
+            case BACKWARD:
+                bullet = new Bullet(this.getX() + 10, this.getY() + 30, BACKWARD, 5);
                 break;
-            case 3:
-                bullet = new Bullet(this.getX(), this.getY() + 10,3,5);
+            case LEFT:
+                bullet = new Bullet(this.getX(), this.getY() + 10, LEFT, 5);
                 break;
         }
+        bullets.add(bullet);
         //生成子弹后 子弹启动线程
         Thread t = new Thread(bullet);
         t.start();
@@ -44,15 +49,18 @@ class HeroTank extends Tank {
 
     //先上运动
     public void moveUp() {
-        this.y-=this.speed;
+        this.y -= this.speed;
     }
+
     public void moveDown() {
-        this.y+=this.speed;
+        this.y += this.speed;
     }
+
     public void moveLeft() {
-        this.x-=this.speed;
+        this.x -= this.speed;
     }
+
     public void moveRight() {
-        this.x+=this.speed;
+        this.x += this.speed;
     }
 }

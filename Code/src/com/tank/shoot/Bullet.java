@@ -1,9 +1,11 @@
 package com.tank.shoot;
 
+import static com.tank.shoot.WarField.*;
+
 public class Bullet implements Runnable{
     int x;
     int y;
-    int direct;
+    INFO direct;
     int speed;
     boolean isAlive = true;
 
@@ -15,15 +17,15 @@ public class Bullet implements Runnable{
         this.speed = speed;
     }
 
-    public int getDirect() {
+    public INFO getDirect() {
         return direct;
     }
 
-    public void setDirect(int direct) {
+    public void setDirect(INFO direct) {
         this.direct = direct;
     }
 
-    public Bullet(int x, int y,int direct,int speed) {
+    public Bullet(int x, int y, INFO direct, int speed) {
         this.x = x;
         this.y = y;
         this.direct = direct;
@@ -56,16 +58,16 @@ public class Bullet implements Runnable{
                 e.printStackTrace();
             }
             switch (this.getDirect()) {
-                case 0:
+                case FORWARD:
                     this.setY(this.getY() - this.speed);
                     break;
-                case 1:
+                case RIGHT:
                     this.setX(this.getX() + this.speed);
                     break;
-                case 2:
+                case BACKWARD:
                     this.setY(this.getY() + this.speed);
                     break;
-                case 3:
+                case LEFT:
                     this.setX(this.getX() - this.speed);
                     break;
             }
