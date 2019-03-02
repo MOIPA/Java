@@ -1,4 +1,4 @@
-package com.tank.shoot;
+package com.tank.finalTankGame;
 
 import javax.swing.*;
 

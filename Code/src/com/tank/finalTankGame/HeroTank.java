@@ -1,8 +1,8 @@
-package com.tank.shoot;
+package com.tank.finalTankGame;
 
 import java.awt.*;
 import java.util.Vector;
-import static com.tank.shoot.WarField.INFO.*;
+import static com.tank.finalTankGame.WarField.INFO.*;
 
 
 //玩家坦克

@@ -1,10 +1,11 @@
-package com.tank.shoot;
+package com.tank.finalTankGame;
 
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.net.URL;
 import java.util.Vector;
 
 //面板 战场
@@ -26,6 +27,16 @@ class WarField extends JPanel implements KeyListener, Runnable {
             this.value = value;
         }
 
+        public static INFO getIdByValue(int value) {
+            switch (value) {
+                case 1:return BACKWARD;
+                case 2:return LEFT;
+                case 3:return RIGHT;
+                case 0:return FORWARD;
+            }
+            return null;
+        }
+
     }
 
     //定义战场爆炸图片
@@ -45,11 +56,15 @@ class WarField extends JPanel implements KeyListener, Runnable {
 //        this.addKeyListener(this);
         //初始化敌人坦克组
         for (int i = 1; i <= enemyNumber; i++) {
-            enemys.add(new EnemyTank(i * 40, -1, Color.YELLOW));
+            EnemyTank enemyTank = new EnemyTank(i * 40, 20, Color.YELLOW);
+            //启动坦克
+            new Thread(enemyTank).start();
+            enemys.add(enemyTank);
         }
-        //初始化爆照图片
-        boomPics.add(Toolkit.getDefaultToolkit().getImage(Panel.class.getResource("/Boom1.jpg")));
-        boomPics.add(Toolkit.getDefaultToolkit().getImage(Panel.class.getResource("/Boom2.jpg")));
+        //初始化爆炸图片
+//        System.out.println(getClass().getClassLoader().getResource("Boom1.jpg"));
+        boomPics.add(Toolkit.getDefaultToolkit().getImage(getClass().getClassLoader().getResource("Boom1.jpg")));
+        boomPics.add(Toolkit.getDefaultToolkit().getImage(getClass().getClassLoader().getResource("Boom2.jpg")));
 
     }
 
@@ -129,8 +144,19 @@ class WarField extends JPanel implements KeyListener, Runnable {
         for (int i=0;i<bombs.size();i++) {
             Bomb bomb = bombs.get(i);
             if (bomb.isAlive) {
-                if(bomb.lastTime>3){ g.drawImage(boomPics.get(0), bomb.x, bomb.y, 30, 30, this);}
-                else{ g.drawImage(boomPics.get(1), bomb.x, bomb.y, 30, 30, this);}
+                //为了防止第一次加载图片未完全载入内存导致显示不出
+                Image img = Toolkit.getDefaultToolkit().getImage(getClass().getClassLoader().getResource("Boom2.jpg"));
+                MediaTracker t = new MediaTracker(this);
+                t.addImage(img, 0);
+                try {
+                    t.waitForAll();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                //前三秒加载第一张图片
+                if (bomb.lastTime > 3) g.drawImage(boomPics.get(0), bomb.x, bomb.y, 30, 30, this);
+                else g.drawImage(boomPics.get(1), bomb.x, bomb.y, 30, 30, this);
+                //爆炸持续时间减少
                 bomb.decreaseTime();
             } else {
                 bombs.remove(bomb);

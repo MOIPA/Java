@@ -1,6 +1,6 @@
-package com.tank.shoot;
+package com.tank.finalTankGame;
 
-import static com.tank.shoot.WarField.*;
+import static com.tank.finalTankGame.WarField.*;
 
 public class Bullet implements Runnable{
     int x;
