@@ -5,15 +5,24 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.net.URL;
 import java.util.Vector;
 
 //面板 战场
 class WarField extends JPanel implements KeyListener, Runnable {
 
+    HeroTank mainTank = null;                           //定义主角坦克
+    Vector<Image> boomPics = new Vector<Image>();           //定义战场爆炸图片
+    Vector<Bomb> bombs = new Vector<Bomb>();               //定义战场炸弹
+    Vector<EnemyTank> enemys = new Vector<EnemyTank>();         //定义敌人坦克
+
+    //全局信息存放在此
     public enum INFO {
-        LEFT(2), RIGHT(3), FORWARD(0), BACKWARD(1), ENEMYNUMBERS(4);
+        LEFT(2), RIGHT(3), FORWARD(0), BACKWARD(1)
+        , EnemyNumbers(4),WarFieldHeight(300),WarFieldWidth(400)
+        ,EnemyBulleSpeed(5);
+
         private int value;
+
 
         private INFO(int value) {
             this.value = value;
@@ -39,26 +48,17 @@ class WarField extends JPanel implements KeyListener, Runnable {
 
     }
 
-    //定义战场爆炸图片
-    Vector<Image> boomPics = new Vector<Image>();
-    //定义战场炸弹
-    Vector<Bomb> bombs = new Vector<Bomb>();
-    //定义主角坦克
-    HeroTank tank = null;
-    //定义敌人坦克
-    Vector<EnemyTank> enemys = new Vector<EnemyTank>();
-    //敌人数量
-    int enemyNumber = INFO.ENEMYNUMBERS.getValue();
-
     public WarField() {
         //初始化主角
-        tank = new HeroTank(100, 100, Color.RED);
+        mainTank = new HeroTank(100, 100, Color.RED);
 //        this.addKeyListener(this);
         //初始化敌人坦克组
-        for (int i = 1; i <= enemyNumber; i++) {
+        for (int i = 1; i <= INFO.EnemyNumbers.getValue(); i++) {
             EnemyTank enemyTank = new EnemyTank(i * 40, 20, Color.YELLOW);
             //启动坦克
             new Thread(enemyTank).start();
+            //坦克启动后发射一次
+            enemyTank.enemyFire();
             enemys.add(enemyTank);
         }
         //初始化爆炸图片
@@ -114,33 +114,20 @@ class WarField extends JPanel implements KeyListener, Runnable {
         super.paint(g);
         //背景色
         g.setColor(Color.BLACK);
-        g.fillRect(0, 0, 400, 300);
+        g.fillRect(0, 0, INFO.WarFieldWidth.getValue(), INFO.WarFieldHeight.getValue());
         //主角
-        drawTank(tank.getX(), tank.getY(), g, tank.getDirect(), Color.RED);
-        //小兵
-        EnemyTank enemyTank;
-        for (int i = 0; i < enemys.size(); i++) {
-            enemyTank = enemys.get(i);
-            if (enemyTank.isAlive == true)
-                drawTank(enemys.get(i).getX(), enemys.get(i).getY(), g, enemyTank.getDirect(), Color.YELLOW);
-            else {
-                //TODO 后期可以做爆炸
-                enemys.remove(enemyTank);
-                i--;
-            }
-        }
-        //子弹
-        for (int i = 0; i < tank.bullets.size(); i++) {
-            Bullet bullet = tank.bullets.get(i);
-            if (bullet != null) {
-                if (bullet.isAlive == false) {
-                    tank.bullets.remove(bullet);
-                    i--;
-                }  //死亡后在此销毁资源
-                else g.draw3DRect(bullet.getX(), bullet.getY(), 1, 1, false);
-            }
-        }
-        //爆炸
+        drawTank(mainTank.getX(), mainTank.getY(), g, mainTank.getDirect(), Color.RED);
+        //画出敌人坦克
+        drawEnemyTanksAndBullets(g);
+        //绘画玩家发射的子弹
+        drawPlayersBullets(g);
+        //绘制场上炸弹爆炸效果  有炸弹就爆炸0.6s
+        drawBoomEffect(g);
+
+    }
+
+    private void drawBoomEffect(Graphics g) {
+        //绘制场上炸弹爆炸效果  有炸弹就爆炸0.6ms
         for (int i=0;i<bombs.size();i++) {
             Bomb bomb = bombs.get(i);
             if (bomb.isAlive) {
@@ -153,7 +140,7 @@ class WarField extends JPanel implements KeyListener, Runnable {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                //前三秒加载第一张图片
+                //前三次加载第一张图片  因为每100ms绘制一次  总共6次 炸弹持续时间为600ms
                 if (bomb.lastTime > 3) g.drawImage(boomPics.get(0), bomb.x, bomb.y, 30, 30, this);
                 else g.drawImage(boomPics.get(1), bomb.x, bomb.y, 30, 30, this);
                 //爆炸持续时间减少
@@ -161,6 +148,45 @@ class WarField extends JPanel implements KeyListener, Runnable {
             } else {
                 bombs.remove(bomb);
                 i--;
+            }
+        }
+    }
+
+    private void drawPlayersBullets(Graphics g) {
+        //绘画玩家发射的子弹
+        for (int i = 0; i < mainTank.bullets.size(); i++) {
+            Bullet bullet = mainTank.bullets.get(i);
+            if (bullet != null) {
+                if (bullet.isAlive == false) {
+                    mainTank.bullets.remove(bullet);//子弹死亡后在此释放资源
+                    i--;
+                }
+                else g.draw3DRect(bullet.getX(), bullet.getY(), 1, 1, false);
+            }
+        }
+    }
+
+    //敌人 和 敌人的子弹
+    private void drawEnemyTanksAndBullets(Graphics g) {
+        //敌人 和 敌人的子弹
+        EnemyTank enemyTank;
+        for (int i = 0; i < enemys.size(); i++) {
+            enemyTank = enemys.get(i);
+            if (enemyTank.isAlive)
+                drawTank(enemys.get(i).getX(), enemys.get(i).getY(), g, enemyTank.getDirect(), Color.YELLOW);
+            else {
+                enemys.remove(enemyTank);
+                i--;
+            }
+            //画出敌人坦克的子弹
+            for (int j = 0; j < enemyTank.enemyFiredBullets.size(); j++) {
+                Bullet bullet = enemyTank.enemyFiredBullets.get(j);
+                if (bullet.isAlive) {
+                    g.draw3DRect(bullet.getX(), bullet.getY(), 1, 1, false);
+                }else{
+                    enemyTank.enemyFiredBullets.remove(bullet);//子弹死亡后在此释放资源
+                    j--;
+                }
             }
         }
     }
@@ -219,7 +245,6 @@ class WarField extends JPanel implements KeyListener, Runnable {
 
     }
 
-
     //处理按键wsad
     @Override
     public void keyTyped(KeyEvent e) {
@@ -232,26 +257,26 @@ class WarField extends JPanel implements KeyListener, Runnable {
 //        System.out.println("key pressed");
         //设置坦克方向
         if (e.getKeyCode() == KeyEvent.VK_W) {
-            this.tank.setDirect(INFO.FORWARD);
-            this.tank.moveUp();
+            this.mainTank.setDirect(INFO.FORWARD);
+            this.mainTank.moveUp();
         } else if (e.getKeyCode() == KeyEvent.VK_D) {
-            this.tank.setDirect(INFO.RIGHT);
-            this.tank.moveRight();
+            this.mainTank.setDirect(INFO.RIGHT);
+            this.mainTank.moveRight();
         } else if (e.getKeyCode() == KeyEvent.VK_S) {
-            this.tank.setDirect(INFO.BACKWARD);
-            this.tank.moveDown();
+            this.mainTank.setDirect(INFO.BACKWARD);
+            this.mainTank.moveDown();
         } else if (e.getKeyCode() == KeyEvent.VK_A) {
-            this.tank.setDirect(INFO.LEFT);
-            this.tank.moveLeft();
+            this.mainTank.setDirect(INFO.LEFT);
+            this.mainTank.moveLeft();
         }
         if (e.getKeyCode() == KeyEvent.VK_J) {
             //开火  控制发射数量
             //TODO 后期可以改进 使用令牌桶算法
-            if (this.tank.bullets.size() <= 5)
-                this.tank.fire();
+            if (this.mainTank.bullets.size() <= 5)
+                this.mainTank.fire();
 
         }
-//        this.tank.moveLeft();
+//        this.mainTank.moveLeft();
         //坦克移动后要刷新面板
         this.repaint();
     }
@@ -271,8 +296,8 @@ class WarField extends JPanel implements KeyListener, Runnable {
                 e.printStackTrace();
             }
             //判断是否击中 每个坦克和每个子弹
-            for (int i = 0; i < tank.bullets.size(); i++) {
-                Bullet bullet = tank.bullets.get(i);
+            for (int i = 0; i < mainTank.bullets.size(); i++) {
+                Bullet bullet = mainTank.bullets.get(i);
                 if (bullet.isAlive == true) {
                     //取出每个坦克匹配
                     for (int j = 0; j < enemys.size(); j++) {
@@ -282,7 +307,9 @@ class WarField extends JPanel implements KeyListener, Runnable {
                     }
                 }
             }
+
             this.repaint();
+
         }
     }
 }

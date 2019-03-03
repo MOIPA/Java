@@ -72,7 +72,7 @@ public class Bullet implements Runnable{
                     break;
             }
             //TODO 子弹死亡时间
-            if (x <= 0 || x >= 400 || y <= 0 || y >= 300) {
+            if (x <= 0 || x >= INFO.WarFieldWidth.getValue() || y <= 0 || y >= INFO.WarFieldHeight.getValue()) {
                 this.isAlive = false;
                 break;
             }
