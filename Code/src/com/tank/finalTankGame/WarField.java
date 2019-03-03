@@ -10,7 +10,7 @@ import java.util.Vector;
 //面板 战场
 class WarField extends JPanel implements KeyListener, Runnable {
 
-    HeroTank mainTank = null;                           //定义主角坦克
+    HeroTank playerTank = null;                           //定义主角坦克
     Vector<Image> boomPics = new Vector<Image>();           //定义战场爆炸图片
     Vector<Bomb> bombs = new Vector<Bomb>();               //定义战场炸弹
     Vector<EnemyTank> enemys = new Vector<EnemyTank>();         //定义敌人坦克
@@ -50,7 +50,7 @@ class WarField extends JPanel implements KeyListener, Runnable {
 
     public WarField() {
         //初始化主角
-        mainTank = new HeroTank(100, 100, Color.RED);
+        playerTank = new HeroTank(100, 100, Color.RED);
 //        this.addKeyListener(this);
         //初始化敌人坦克组
         for (int i = 1; i <= INFO.EnemyNumbers.getValue(); i++) {
@@ -69,7 +69,7 @@ class WarField extends JPanel implements KeyListener, Runnable {
     }
 
     //判断子弹是否击中坦克
-    public void hitTank(Bullet bullet, EnemyTank enemyTank) {
+    public void hitTank(Bullet bullet, Tank enemyTank) {
         switch (enemyTank.getDirect()) {
             case FORWARD:
                 if (enemyTank.getX() <= bullet.getX() && enemyTank.getX() >= bullet.getX() + 30 && enemyTank.getY() <= bullet.getY() && enemyTank.getY() + 20 >= bullet.getY()) {
@@ -116,7 +116,7 @@ class WarField extends JPanel implements KeyListener, Runnable {
         g.setColor(Color.BLACK);
         g.fillRect(0, 0, INFO.WarFieldWidth.getValue(), INFO.WarFieldHeight.getValue());
         //主角
-        drawTank(mainTank.getX(), mainTank.getY(), g, mainTank.getDirect(), Color.RED);
+        if(playerTank.isAlive)drawTank(playerTank.getX(), playerTank.getY(), g, playerTank.getDirect(), Color.RED);
         //画出敌人坦克
         drawEnemyTanksAndBullets(g);
         //绘画玩家发射的子弹
@@ -154,11 +154,11 @@ class WarField extends JPanel implements KeyListener, Runnable {
 
     private void drawPlayersBullets(Graphics g) {
         //绘画玩家发射的子弹
-        for (int i = 0; i < mainTank.bullets.size(); i++) {
-            Bullet bullet = mainTank.bullets.get(i);
+        for (int i = 0; i < playerTank.bullets.size(); i++) {
+            Bullet bullet = playerTank.bullets.get(i);
             if (bullet != null) {
                 if (bullet.isAlive == false) {
-                    mainTank.bullets.remove(bullet);//子弹死亡后在此释放资源
+                    playerTank.bullets.remove(bullet);//子弹死亡后在此释放资源
                     i--;
                 }
                 else g.draw3DRect(bullet.getX(), bullet.getY(), 1, 1, false);
@@ -257,26 +257,26 @@ class WarField extends JPanel implements KeyListener, Runnable {
 //        System.out.println("key pressed");
         //设置坦克方向
         if (e.getKeyCode() == KeyEvent.VK_W) {
-            this.mainTank.setDirect(INFO.FORWARD);
-            this.mainTank.moveUp();
+            this.playerTank.setDirect(INFO.FORWARD);
+            this.playerTank.moveUp();
         } else if (e.getKeyCode() == KeyEvent.VK_D) {
-            this.mainTank.setDirect(INFO.RIGHT);
-            this.mainTank.moveRight();
+            this.playerTank.setDirect(INFO.RIGHT);
+            this.playerTank.moveRight();
         } else if (e.getKeyCode() == KeyEvent.VK_S) {
-            this.mainTank.setDirect(INFO.BACKWARD);
-            this.mainTank.moveDown();
+            this.playerTank.setDirect(INFO.BACKWARD);
+            this.playerTank.moveDown();
         } else if (e.getKeyCode() == KeyEvent.VK_A) {
-            this.mainTank.setDirect(INFO.LEFT);
-            this.mainTank.moveLeft();
+            this.playerTank.setDirect(INFO.LEFT);
+            this.playerTank.moveLeft();
         }
         if (e.getKeyCode() == KeyEvent.VK_J) {
             //开火  控制发射数量
             //TODO 后期可以改进 使用令牌桶算法
-            if (this.mainTank.bullets.size() <= 5)
-                this.mainTank.fire();
+            if (this.playerTank.bullets.size() <= 5)
+                this.playerTank.fire();
 
         }
-//        this.mainTank.moveLeft();
+//        this.playerTank.moveLeft();
         //坦克移动后要刷新面板
         this.repaint();
     }
@@ -295,21 +295,35 @@ class WarField extends JPanel implements KeyListener, Runnable {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            //判断是否击中 每个坦克和每个子弹
-            for (int i = 0; i < mainTank.bullets.size(); i++) {
-                Bullet bullet = mainTank.bullets.get(i);
-                if (bullet.isAlive == true) {
-                    //取出每个坦克匹配
-                    for (int j = 0; j < enemys.size(); j++) {
-                        EnemyTank enemyTank = enemys.get(j);
-                        if (enemyTank.isAlive)
-                            hitTank(bullet, enemyTank); //paint的时候根据状态选择是否绘画
-                    }
-                }
-            }
+            //判断是否击中敌人坦克 每个坦克和每个子弹
+            checkHitEnemy(playerTank);
+            //判断是否击中我方坦克
+            checkHitPlayer(enemys, playerTank);
 
             this.repaint();
 
+        }
+    }
+
+    private void checkHitPlayer(Vector<EnemyTank> enemys, HeroTank mainTank) {
+        for (EnemyTank tank : enemys) {
+            for (Bullet bullet : tank.enemyFiredBullets) {
+                hitTank(bullet,mainTank);
+            }
+        }
+    }
+
+    private void checkHitEnemy(HeroTank mainTank) {
+        for (int i = 0; i < mainTank.bullets.size(); i++) {
+            Bullet bullet = mainTank.bullets.get(i);
+            if (bullet.isAlive == true) {
+                //取出每个坦克匹配
+                for (int j = 0; j < enemys.size(); j++) {
+                    EnemyTank enemyTank = enemys.get(j);
+                    if (enemyTank.isAlive)
+                        hitTank(bullet, enemyTank); //paint的时候根据状态选择是否绘画
+                }
+            }
         }
     }
 }
