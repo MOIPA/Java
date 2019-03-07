@@ -28,6 +28,9 @@ class EnemyTank extends Tank implements Runnable {
             Random random = new Random();
 //            WarField.INFO.valueOf(WarField.INFO.class,"FORWARD");
             int i = random.nextInt(4);
+            //判断这个方向是否可行，通过对上下左右是否有敌人  如果通过方向设定正确
+
+            this.setDirect(WarField.INFO.getIdByValue(i));
             //坦克自动行走
             switch (this.direct) {
                 case FORWARD://正在向前走
@@ -71,7 +74,6 @@ class EnemyTank extends Tank implements Runnable {
                     }
                     break;
             }
-            this.setDirect(WarField.INFO.getIdByValue(i));
             //判断是否死亡  如果不看会出现僵尸线程   每次写线程需要看退出值
             if (this.isAlive == false) {
                 break;
