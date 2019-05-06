@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="06a1d60d-257c-4875-9caa-0d3533b5db93" name="Default" comment="" />
+    <list default="true" id="06a1d60d-257c-4875-9caa-0d3533b5db93" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/tr/BasicJava/List2MapTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/tr/BasicJava/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -12,20 +17,52 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+<<<<<<< HEAD
       <file leaf-file-name="Bomb.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/tank/finalTankGame/Bomb.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="95">
               <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
+=======
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/tank/finalTankGame/WarField.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1496">
+              <caret line="78" column="46" selection-start-line="78" selection-start-column="46" selection-end-line="78" selection-end-column="46" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#drawBoomEffect#0;class#WarField#0" />
+                <element signature="method#keyTyped#0;class#WarField#0" />
+                <element signature="method#keyPressed#0;class#WarField#0" />
+                <element signature="method#keyReleased#0;class#WarField#0" />
+              </folding>
+>>>>>>> 9bce3702117e2186ebb66e0570755c391c4516f2
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="EnemyTank.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/tank/finalTankGame/EnemyTank.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="418">
               <caret line="23" column="22" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
+=======
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Add_Two_Numbers.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1650">
+              <caret line="75" column="13" selection-start-line="75" selection-start-column="13" selection-end-line="75" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/tr/BasicJava/List2MapTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="66">
+              <caret line="7" column="31" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
+>>>>>>> 9bce3702117e2186ebb66e0570755c391c4516f2
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -33,15 +70,34 @@
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="TankGame.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/tank/finalTankGame/TankGame.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="285">
               <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
+=======
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/tr/BasicJava/Student.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="308">
+              <caret line="22" column="42" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="42" />
+              <folding>
+                <element signature="e#125#126#0" expanded="true" />
+                <element signature="e#152#153#0" expanded="true" />
+                <element signature="e#192#193#0" expanded="true" />
+                <element signature="e#224#225#0" expanded="true" />
+                <element signature="e#251#252#0" expanded="true" />
+                <element signature="e#277#278#0" expanded="true" />
+                <element signature="e#312#313#0" expanded="true" />
+                <element signature="e#342#343#0" expanded="true" />
+              </folding>
+>>>>>>> 9bce3702117e2186ebb66e0570755c391c4516f2
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="WarField.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/tank/finalTankGame/WarField.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -59,6 +115,13 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="247">
               <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
+=======
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/tank/finalTankGame/EnemyTank.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="594">
+              <caret line="32" column="58" selection-start-line="32" selection-start-column="58" selection-end-line="32" selection-end-column="58" />
+>>>>>>> 9bce3702117e2186ebb66e0570755c391c4516f2
             </state>
           </provider>
         </entry>
@@ -77,6 +140,7 @@
     <findStrings>
       <find>tank.getX()</find>
       <find>tank.getY()</find>
+      <find>400</find>
     </findStrings>
     <replaceStrings>
       <replace>x</replace>
@@ -109,15 +173,29 @@
         <option value="$PROJECT_DIR$/src/com/tank/shoot/TankShot.java" />
         <option value="$PROJECT_DIR$/src/com/tank/shoot/TankGame.java" />
         <option value="$PROJECT_DIR$/src/com/tank/shoot/WarFiledInfo.java" />
-        <option value="$PROJECT_DIR$/src/com/tank/shoot/Tank.java" />
         <option value="$PROJECT_DIR$/src/com/tank/shoot/Bullet.java" />
         <option value="$PROJECT_DIR$/src/com/tank/shoot/HeroTank.java" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/src/com/tank/component/Components.java" />
         <option value="$PROJECT_DIR$/src/com/tank/component/component/DrawTank.java" />
         <option value="$PROJECT_DIR$/src/com/tank/shoot/EnemyTank.java" />
         <option value="$PROJECT_DIR$/src/com/tank/shoot/WarField.java" />
         <option value="$PROJECT_DIR$/src/com/tank/FinalTankGame/WarField.java" />
         <option value="$PROJECT_DIR$/src/com/tank/finalTankGame/WarField.java" />
+=======
+        <option value="$PROJECT_DIR$/src/com/tank/shoot/Tank.java" />
+        <option value="$PROJECT_DIR$/src/com/tank/shoot/EnemyTank.java" />
+        <option value="$PROJECT_DIR$/src/com/tank/shoot/Bomb.java" />
+        <option value="$PROJECT_DIR$/src/com/tank/shoot/WarField.java" />
+        <option value="$PROJECT_DIR$/src/com/tank/finalTankGame/TankGame.java" />
+        <option value="$PROJECT_DIR$/src/com/tank/finalTankGame/Bullet.java" />
+        <option value="$PROJECT_DIR$/src/com/tank/finalTankGame/WarField.java" />
+        <option value="$PROJECT_DIR$/src/com/tank/finalTankGame/EnemyTank.java" />
+        <option value="$PROJECT_DIR$/src/Algo.java" />
+        <option value="$PROJECT_DIR$/src/Add_Two_Numbers.java" />
+        <option value="$PROJECT_DIR$/src/com/tr/BasicJava/Student.java" />
+        <option value="$PROJECT_DIR$/src/com/tr/BasicJava/List2MapTest.java" />
+>>>>>>> 9bce3702117e2186ebb66e0570755c391c4516f2
       </list>
     </option>
   </component>
@@ -135,6 +213,7 @@
       </MavenGeneralSettings>
     </option>
   </component>
+<<<<<<< HEAD
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
@@ -142,6 +221,13 @@
     <option name="x" value="-9" />
     <option name="width" value="1080" />
     <option name="height" value="1059" />
+=======
+  <component name="ProjectFrameBounds">
+    <option name="x" value="49" />
+    <option name="y" value="206" />
+    <option name="width" value="1243" />
+    <option name="height" value="764" />
+>>>>>>> 9bce3702117e2186ebb66e0570755c391c4516f2
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -149,6 +235,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
+=======
+      <pane id="PackagesPane" />
+>>>>>>> 9bce3702117e2186ebb66e0570755c391c4516f2
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -171,12 +261,17 @@
               <item name="Code" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="com" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
+=======
+              <item name="tr" type="462c0819:PsiDirectoryNode" />
+>>>>>>> 9bce3702117e2186ebb66e0570755c391c4516f2
             </path>
             <path>
               <item name="Code" type="b2602c69:ProjectViewProjectNode" />
               <item name="Code" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="com" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
               <item name="tank" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -186,29 +281,45 @@
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="tank" type="462c0819:PsiDirectoryNode" />
               <item name="finalTankGame" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="tr" type="462c0819:PsiDirectoryNode" />
+              <item name="BasicJava" type="462c0819:PsiDirectoryNode" />
+>>>>>>> 9bce3702117e2186ebb66e0570755c391c4516f2
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+<<<<<<< HEAD
       <pane id="PackagesPane" />
       <pane id="AndroidView" />
       <pane id="Scope" />
       <pane id="Course" />
+=======
+      <pane id="Course" />
+      <pane id="Scope" />
+>>>>>>> 9bce3702117e2186ebb66e0570755c391c4516f2
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+<<<<<<< HEAD
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551456869696" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../JAVAEE/HerbinateProjectExample" />
+=======
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552273415733" />
+    <property name="last_opened_file_path" value="E:/Tool--git/Git/bin/git.exe" />
+    <property name="nodejs_package_manager_path" value="npm" />
+>>>>>>> 9bce3702117e2186ebb66e0570755c391c4516f2
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.uml" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Doc--GitRepo\Java\Code\src" />
       <recent name="D:\Doc--GitRepo\Java\Code\src\com\tank\shoot" />
       <recent name="D:\Doc--GitRepo\Java\Code\src" />
       <recent name="D:\Doc--GitRepo\Java\Code\src\com\tank\component" />
@@ -230,26 +341,38 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.TankGame">
-    <configuration name="Demo1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.tr.SwingLearn.Demo1" />
+  <component name="RunManager" selected="Application.Add_Two_Numbers">
+    <configuration name="Add_Two_Numbers" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Add_Two_Numbers" />
       <module name="Code" />
+<<<<<<< HEAD
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.tr.SwingLearn.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+=======
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+>>>>>>> 9bce3702117e2186ebb66e0570755c391c4516f2
     </configuration>
-    <configuration name="DrawTank" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.tank.component.DrawTank" />
+    <configuration name="Algo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Algo" />
       <module name="Code" />
+<<<<<<< HEAD
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.tank.component.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+=======
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+>>>>>>> 9bce3702117e2186ebb66e0570755c391c4516f2
     </configuration>
     <configuration name="TankGame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.tank.finalTankGame.TankGame" />
@@ -282,19 +405,19 @@
       </extension>
     </configuration>
     <list>
-      <item itemvalue="Application.Demo1" />
-      <item itemvalue="Application.DrawTank" />
       <item itemvalue="Application.TankShot" />
       <item itemvalue="Application.TankGame" />
       <item itemvalue="Application.ThreadTest" />
+      <item itemvalue="Application.Algo" />
+      <item itemvalue="Application.Add_Two_Numbers" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Add_Two_Numbers" />
+        <item itemvalue="Application.Algo" />
         <item itemvalue="Application.TankGame" />
         <item itemvalue="Application.ThreadTest" />
         <item itemvalue="Application.TankShot" />
-        <item itemvalue="Application.DrawTank" />
-        <item itemvalue="Application.Demo1" />
       </list>
     </recent_temporary>
   </component>
@@ -316,13 +439,23 @@
       <workItem from="1550715120736" duration="12701000" />
       <workItem from="1551240910895" duration="20548000" />
       <workItem from="1551414814342" duration="8124000" />
+<<<<<<< HEAD
       <workItem from="1551442098885" duration="6023000" />
       <workItem from="1551663725824" duration="223000" />
       <workItem from="1552085503969" duration="42000" />
+=======
+      <workItem from="1551442098885" duration="9214000" />
+      <workItem from="1551499454984" duration="17060000" />
+      <workItem from="1551799672496" duration="14654000" />
+      <workItem from="1552271714132" duration="902000" />
+      <workItem from="1552273554635" duration="3000" />
+      <workItem from="1552278623311" duration="130000" />
+>>>>>>> 9bce3702117e2186ebb66e0570755c391c4516f2
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="64494000" />
   </component>
   <component name="ToolWindowManager">
@@ -330,6 +463,29 @@
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="4" />
+=======
+    <option name="totallyTimeSpent" value="93074000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="49" y="206" width="1243" height="764" extended-state="0" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4857143" visible="true" weight="0.20033813" />
+      <window_info id="Structure" order="1" sideWeight="0.51428574" side_tool="true" visible="true" weight="0.20033813" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info id="Learn" order="7" />
+      <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Educational.CheckDetails" order="1" />
+      <window_info anchor="bottom" id="Message" order="2" />
+      <window_info anchor="bottom" id="Find" order="3" weight="0.32827735" />
+      <window_info anchor="bottom" id="Run" order="4" weight="0.20910075" />
+      <window_info anchor="bottom" id="Debug" order="5" weight="0.26849315" />
+      <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
+>>>>>>> 9bce3702117e2186ebb66e0570755c391c4516f2
       <window_info anchor="bottom" id="TODO" order="8" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info id="Image Layers" order="3" />
@@ -366,12 +522,25 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+<<<<<<< HEAD
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <option name="time" value="1" />
+=======
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Add_Two_Numbers.java</url>
+          <line>118</line>
+          <properties />
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+>>>>>>> 9bce3702117e2186ebb66e0570755c391c4516f2
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -519,6 +688,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java" />
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/BasicGrammar.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="737">
@@ -526,6 +696,8 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> 9bce3702117e2186ebb66e0570755c391c4516f2
     <entry file="file://$PROJECT_DIR$/src/com/tr/BasicJava/SwitchCase.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="370">
@@ -618,6 +790,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/com/tank/component/TankShot.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
@@ -722,6 +895,145 @@
           <caret line="58" column="74" lean-forward="true" selection-start-line="58" selection-start-column="74" selection-end-line="58" selection-end-column="74" />
           <folding>
             <element signature="imports" expanded="true" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/com/tank/shoot/WarFiledInfo.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/tr/BasicJava/ThreadTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
+          <folding>
+            <element signature="e#96#97#0" expanded="true" />
+            <element signature="e#128#129#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/Tool--jdk/JDK/src.zip!/java/awt/Component.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="3309" column="16" selection-start-line="3309" selection-start-column="16" selection-end-line="3309" selection-end-column="16" />
+          <folding>
+            <element signature="e#114480#114481#0" expanded="true" />
+            <element signature="e#114527#114528#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/Tool--jdk/JDK/src.zip!/java/util/Vector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="313" column="28" selection-start-line="313" selection-start-column="28" selection-end-line="313" selection-end-column="28" />
+          <folding>
+            <element signature="e#11695#11696#0" expanded="true" />
+            <element signature="e#11730#11731#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/tank/finalTankGame/Bomb.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/tank/finalTankGame/TankGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BasicGrammar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="13" column="43" selection-start-line="13" selection-start-column="43" selection-end-line="13" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/tank/finalTankGame/Bullet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="454">
+          <caret line="63" column="27" lean-forward="true" selection-start-line="63" selection-start-column="27" selection-end-line="63" selection-end-column="27" />
+          <folding>
+            <element signature="e#300#301#0" expanded="true" />
+            <element signature="e#334#335#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/tank/finalTankGame/HeroTank.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="518">
+          <caret line="47" column="5" lean-forward="true" selection-start-line="28" selection-start-column="4" selection-end-line="47" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/tank/finalTankGame/Tank.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="48" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/tank/finalTankGame/WarField.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1496">
+          <caret line="78" column="46" selection-start-line="78" selection-start-column="46" selection-end-line="78" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#drawBoomEffect#0;class#WarField#0" />
+            <element signature="method#keyTyped#0;class#WarField#0" />
+            <element signature="method#keyPressed#0;class#WarField#0" />
+            <element signature="method#keyReleased#0;class#WarField#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Add_Two_Numbers.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1650">
+          <caret line="75" column="13" selection-start-line="75" selection-start-column="13" selection-end-line="75" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/tr/BasicJava/Student.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="22" column="42" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="42" />
+          <folding>
+            <element signature="e#125#126#0" expanded="true" />
+            <element signature="e#152#153#0" expanded="true" />
+            <element signature="e#192#193#0" expanded="true" />
+            <element signature="e#224#225#0" expanded="true" />
+            <element signature="e#251#252#0" expanded="true" />
+            <element signature="e#277#278#0" expanded="true" />
+            <element signature="e#312#313#0" expanded="true" />
+            <element signature="e#342#343#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/tank/finalTankGame/EnemyTank.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="32" column="58" selection-start-line="32" selection-start-column="58" selection-end-line="32" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/tr/BasicJava/List2MapTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="7" column="31" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+>>>>>>> 9bce3702117e2186ebb66e0570755c391c4516f2
           </folding>
         </state>
       </provider>
