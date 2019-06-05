@@ -26,7 +26,7 @@ class EnemyTank extends Tank implements Runnable {
             times++;
             //坦克随机选个方向  注意的是坦克先走完再换方向
             Random random = new Random();
-//            WarField.INFO.valueOf(WarField.INFO.class,"FORWARD");
+            //WarField.INFO.valueOf(WarField.INFO.class,"FORWARD");
             int i = random.nextInt(4);
             //判断这个方向是否可行，通过对上下左右是否有敌人  如果通过方向设定正确
 

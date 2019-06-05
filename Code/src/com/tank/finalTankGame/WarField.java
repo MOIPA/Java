@@ -20,10 +20,7 @@ class WarField extends JPanel implements KeyListener, Runnable {
         LEFT(2), RIGHT(3), FORWARD(0), BACKWARD(1)
         , EnemyNumbers(4),WarFieldHeight(300),WarFieldWidth(400)
         ,EnemyBulleSpeed(5);
-
         private int value;
-
-
         private INFO(int value) {
             this.value = value;
         }
@@ -110,13 +107,16 @@ class WarField extends JPanel implements KeyListener, Runnable {
 
     }
 
+    @Override
     public void paint(Graphics g) {
         super.paint(g);
         //背景色
         g.setColor(Color.BLACK);
         g.fillRect(0, 0, INFO.WarFieldWidth.getValue(), INFO.WarFieldHeight.getValue());
         //主角
-        if(playerTank.isAlive)drawTank(playerTank.getX(), playerTank.getY(), g, playerTank.getDirect(), Color.RED);
+        if(playerTank.isAlive) {
+            drawTank(playerTank.getX(), playerTank.getY(), g, playerTank.getDirect(), Color.RED);
+        }
         //画出敌人坦克
         drawEnemyTanksAndBullets(g);
         //绘画玩家发射的子弹
@@ -193,14 +193,7 @@ class WarField extends JPanel implements KeyListener, Runnable {
 
     //draw 坦克
     public void drawTank(int x, int y, Graphics g, INFO direct, Color color) {
-//        switch (type) {
-//            case 0:
-//                g.setColor(Color.BLUE);
-//                break;
-//            case 1:
-//                g.setColor(Color.RED);
-//                break;
-//        }
+
         g.setColor(color);
         switch (direct) {
             case FORWARD://向上:
